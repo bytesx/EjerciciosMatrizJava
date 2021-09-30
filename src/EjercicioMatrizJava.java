@@ -16,16 +16,29 @@ public class EjercicioMatrizJava {
 
         //Declarando Variables
         int[][] asuMatriz = new int[5][5];
-        int x, y, z; // Variables para Iteracion
+        int x, w, y, z; // Variables para Iteracion
         double sumaPromedio = 0;
+        int numMayor = asuMatriz[0][0];
+        int numMenor = asuMatriz[0][0];
 
         for (x = 0; x < asuMatriz.length; x++) {
             for (y = 0; y < asuMatriz.length; y++) {
-                asuMatriz[x][y] = (int) (Math.random()*100);
+                asuMatriz[x][y] = (int) (Math.random() * 100);
                 System.out.println(asuMatriz[x][y]);
-                sumaPromedio = (sumaPromedio + asuMatriz[x] [y]) / 10;
+                sumaPromedio = (sumaPromedio + asuMatriz[x][y]) / 10;
             }
         }
-        System.out.println("El promedio del arreglo es: " + String.format("%2f",sumaPromedio));
+        for (w = 0; w < asuMatriz.length; w++) {
+            for (z = 0; z < asuMatriz.length; z++) {
+                if (asuMatriz[w][z] >= numMayor) {
+                    numMayor = asuMatriz[w][z];
+                }
+                if (asuMatriz[w][z] <= numMenor);
+                numMenor = asuMatriz[w][z];
+            }
+        }
+        System.out.println("El promedio del arreglo es: " + String.format("%2f", sumaPromedio));
+        System.out.println("El numero mayor es: " + numMayor);
+        System.out.println("El numero menor es: " + numMenor);
     }
 }
