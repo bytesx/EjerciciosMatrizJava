@@ -1,3 +1,5 @@
+import static java.lang.Math.*;
+
 public class EjercicioMatrizJava {
     public static void main(String[] args) {
         //Edgar Vazquez - Java - Ejercicio con Matriz
@@ -13,7 +15,17 @@ public class EjercicioMatrizJava {
         // 9.- Mostrar en consola el mensaje "Cuadrado Mágico" si la matriz cataloga como un cuadrado mágico.
 
         //Declarando Variables
-        int asuMatriz [][][][][][];
+        int[][] asuMatriz = new int[5][5];
+        int x, y, z; // Variables para Iteracion
+        double sumaPromedio = 0;
 
+        for (x = 0; x < asuMatriz.length; x++) {
+            for (y = 0; y < asuMatriz.length; y++) {
+                asuMatriz[x][y] = (int) (Math.random()*100);
+                System.out.println(asuMatriz[x][y]);
+                sumaPromedio = (sumaPromedio + asuMatriz[x] [y]) / 10;
+            }
+        }
+        System.out.println("El promedio del arreglo es: " + String.format("%2f",sumaPromedio));
     }
 }
