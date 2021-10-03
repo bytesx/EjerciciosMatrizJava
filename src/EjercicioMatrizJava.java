@@ -16,11 +16,13 @@ public class EjercicioMatrizJava {
 
         //Declarando Variables
         int[][] asuMatriz = new int[5][5];
-        int x, w, y, z; // Variables para Iteracion
+        int a, b = 0, x, w, y, z; // Variables para Iteracion
         double sumaPromedio = 0;
         int numMayor = asuMatriz[0][0];
-        int numMenor = asuMatriz[0][0];
+        boolean esPrimo = false;
+        int numPrimo, sumUltimaFila =0;
 
+        // Funcion para Asignar numeros Random y encontrar promedio de Matriz
         for (x = 0; x < asuMatriz.length; x++) {
             for (y = 0; y < asuMatriz.length; y++) {
                 asuMatriz[x][y] = (int) (Math.random() * 100);
@@ -28,17 +30,38 @@ public class EjercicioMatrizJava {
                 sumaPromedio = (sumaPromedio + asuMatriz[x][y]) / 10;
             }
         }
-        for (w = 0; w < asuMatriz.length; w++) {
-            for (z = 0; z < asuMatriz.length; z++) {
-                if (asuMatriz[w][z] >= numMayor) {
-                    numMayor = asuMatriz[w][z];
+
+
+        /// Funcion para Buscar numero mayor en Arreglo Bidimensional
+            for (w = 0; w < asuMatriz.length; w++) {
+                for (z = 0; z < asuMatriz.length; z++) {
+                    if (asuMatriz[w][z] >= numMayor) {
+                        numMayor = asuMatriz[w][z];
+                        sumUltimaFila = (asuMatriz[4][4] + asuMatriz[4][4]);
+                    }
                 }
-                if (asuMatriz[w][z] <= numMenor);
-                numMenor = asuMatriz[w][z];
+            }
+        System.out.println("El numero mayor es: " + numMayor);
+        System.out.println("El promedio del arreglo es: " + String.format("%2f", sumaPromedio));
+        System.out.println("Los ultimos numeros de la fila son: " + asuMatriz[4][4]);
+        System.out.println("La suma de los ultimos numero es: " + sumUltimaFila);
+
+        for ( a = 0; a < asuMatriz.length; a++) {
+            for (b = 0; b < asuMatriz.length; b++) {
+                esPrimo = true;
+                for ( numPrimo = 2; numPrimo < a; numPrimo++){
+                    for ( numPrimo= 2; numPrimo < b; numPrimo++) {
+                        if ( a % numPrimo == 0) {
+                            if ( b % numPrimo == 0) {
+                                esPrimo = false;
+                            }
+                        }
+                    }
+                }
+                if(esPrimo)
+                    System.out.println("Los numeros primos son: " + asuMatriz[a][b]);
             }
         }
-        System.out.println("El promedio del arreglo es: " + String.format("%2f", sumaPromedio));
-        System.out.println("El numero mayor es: " + numMayor);
-        System.out.println("El numero menor es: " + numMenor);
+
     }
 }
